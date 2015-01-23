@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>font</title>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+	</head>
+	<body>
+		<script src="js/font.js" type="text/javascript" charset="utf-8"></script>
+		<div id = "font">
+			<ul id = "fontul">
+				<li class="fontli">
+					<p>font-style</p>
+					<select id="font-style" onchange="javascript:font_style();">
+						<option value="normal">normal</option>
+						<option value="italic">italic</option>
+						<option value="oblique">oplique</option>
+					</select>
+				</li>
+				<li class="fontli">
+					<p>font-variant</p>
+					<select id="font-variant" onchange="javascript:font_variant();">
+						<option value="normal">normal</option>
+						<option value="small-caps">small-caps</option>
+					</select>
+				</li>
+				<li class="fontli">
+					<p>font-weight</p>
+					<select id="font-weight" onchange="javascript:font_weight();">
+						<option value="normal">normal</option>
+						<option value="bold">bold</option>
+						<option value="bolder">bolder</option>
+						<option value="lighter">lighter</option>
+					</select>
+				</li>
+				<li class="fontli">
+					<p>font-size</p>
+					<select id="font-size" onchange="javascript:font_size();">
+						<option value="medium">medium</option>
+						<option value="xx-small">xx-small</option>
+						<option value="x-small">x-small</option>
+						<option value="small">small</option>
+						<option value="large">large</option>
+						<option value="x-large">x-large</option>
+						<option value="xx-large">xx-large</option>
+					</select>
+				</li>
+				<li class="fontli">
+					<p>font-height</p>
+					<select id="font-height" onchange="javascript:font_height();">
+						<option value="normal">normal</option>
+						<option value="30%">30%</option>
+						<option value="50%">50%</option>
+						<option value="70%">70%</option>
+					</select>
+				</li>
+				<li class="fontli">
+					<p>font-family</p>
+					<select id="font-family" onchange="javascript:font_family();">
+						<option value="normal">normal</option>
+						<option value="times">bold</option>
+						<option value="courier">courier</option>
+						<option value="arial">arial</option>
+					</select>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="p">	
+			<!--<button id="change">change</button>-->
+			<p id="testp">The font CSS property is either a shorthand property for setting font-style, font-variant, font-weight, font-size, line-height and font-family, or a way to set the element's font to a system font, using specific keywords.</p>
+		</div>
+	</body>
+</html>
