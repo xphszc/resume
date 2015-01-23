@@ -1,0 +1,22 @@
+#font{
+	margin: 0px auto;
+	width: 70%;
+}
+#fontul{
+	list-style: none;
+	height: 100px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.fontli{
+	position: relative;
+	float: left;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+}
+#p{
+	margin: 0px auto;
+	width: 70%;
+}
