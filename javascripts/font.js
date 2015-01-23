@@ -40,3 +40,9 @@ function font_family () {
 	var testp = document.getElementById("testp");
 	testp.style.fontFamily = fontfamily;	
 }
+function font_color () {
+	var fontcolor = document.getElementById("font-color").value;
+	console.log("fontcolor:"+fontcolor);
+	var testp = document.getElementById("testp");
+	testp.style.color = fontcolor;
+}
