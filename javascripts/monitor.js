@@ -1,4 +1,4 @@
-Enter file contents here// JavaScript source code
+// JavaScript source code
 
 //脚本匿名函数 
 (function () {
