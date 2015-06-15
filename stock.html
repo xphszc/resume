@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>上市公司地图</title>
+		<style type="text/css">
+			body, html, #l-map {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+		</style>
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=aynvmDUmf8yPyeGm4lcjp4Za" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="l-map"></div>
+	</body>
+
+</html>
+<script src="http://hq.sinajs.cn/list=sh600000,sh600009,sh600018,sh600019,sh600021,sh600026,sh600050,sh600061,sh600072,sh600073,sh600081,sh600088,sh600094,sh600097,sh600104,sh600115,sh600119,sh600150,sh600151,sh600170,sh600171,sh600196,sh600210,sh600272,sh600278,sh600284,sh600315,sh600320,sh600420,sh600490,sh600500,sh600503,sh600508,sh600517,sh600530,sh600555,sh600597,sh600601,sh600602,sh600604,sh600605,sh600606,sh600608,sh600610,sh600611,sh600612,sh600613,sh600614,sh600615,sh600616,sh600617,sh600618,sh600619,sh600620,sh600621,sh600622,sh600623,sh600624,sh600626,sh600628,sh600629,sh600630,sh600634,sh600635,sh600636,sh600637,sh600638,sh600639,sh600640,sh600641,sh600642,sh600643,sh600647,sh600648,sh600649,sh600650,sh600651,sh600652,sh600653,sh600654,sh600655,sh600661,sh600662,sh600663,sh600675,sh600676,sh600679,sh600680,sh600688,sh600689,sh600692,sh600695,sh600696,sh600708,sh600732,sh600741,sh600748,sh600754"
+type="text/javascript" charset="gb2312"></script>
+<script type="text/javascript">
+	var stock = [
+	{ "name": "浦发银行", "code": 600000, "lat": 31.239, "lng": 121.498 },
+	{ "name": "上海机场", "code": 600009, "lat": 31.163, "lng": 121.798 },
+	{ "name": "上港集团", "code": 600018, "lat": 31.252, "lng": 121.502 },
+	{ "name": "宝钢股份", "code": 600019, "lat": 31.414, "lng": 121.473 },
+	{ "name": "上海电力", "code": 600021, "lat": 31.227, "lng": 121.508 },
+	{ "name": "中海发展", "code": 600026, "lat": 31.254, "lng": 121.509 },
+	{ "name": "中国联通", "code": 600050, "lat": 31.224, "lng": 121.423 },
+	{ "name": "中纺投资", "code": 600061, "lat": 31.216, "lng": 121.433 },
+	{ "name": "钢构工程", "code": 600072, "lat": 31.393, "lng": 121.703 },
+	{ "name": "上海梅林", "code": 600073, "lat": 31.253, "lng": 121.459 },
+	{ "name": "东风科技", "code": 600081, "lat": 31.255, "lng": 121.437 },  
+	{ "name": "中视传媒", "code": 600088, "lat": 31.230, "lng": 121.537 },
+	{ "name": "大名城", "code": 600094, "lat": 31.192, "lng": 121.401 },
+	{ "name": "开创国际", "code": 600097, "lat": 31.297, "lng": 121.567 },
+	{ "name": "上汽集团", "code": 600104, "lat": 31.232, "lng": 121.468 },
+	{ "name": "东方航空", "code": 600115, "lat": 31.191, "lng": 121.363 },
+	{ "name": "长江投资", "code": 600119, "lat": 31.072, "lng": 121.387 },
+	{ "name": "中国船舶", "code": 600150, "lat": 31.244, "lng": 121.517 },
+	{ "name": "航天机电", "code": 600151, "lat": 31.177, "lng": 121.441 },
+	{ "name": "上海建工", "code": 600170, "lat": 31.255, "lng": 121.508 },
+	{ "name": "上海贝岭", "code": 600171, "lat": 31.178, "lng": 121.408 },  
+	{ "name": "复星医药", "code": 600196, "lat": 31.886, "lng": 121.326 },
+	{ "name": "紫江企业", "code": 600210, "lat": 31.196, "lng": 121.382 },
+	{ "name": "开开实业", "code": 600272, "lat": 31.240, "lng": 121.465 },
+	{ "name": "东方创业", "code": 600278, "lat": 31.215, "lng": 121.410 },
+	{ "name": "浦东建设", "code": 600284, "lat": 31.247, "lng": 121.514 },
+	{ "name": "上海家化", "code": 600315, "lat": 31.266, "lng": 121.513 },
+	{ "name": "振华重工", "code": 600320, "lat": 31.199, "lng": 121.524 },
+	{ "name": "现代制药", "code": 600420, "lat": 31.234, "lng": 121.456 },
+	{ "name": "鹏欣资源", "code": 600490, "lat": 31.199, "lng": 121.386 },
+	{ "name": "中化国际", "code": 600500, "lat": 31.240, "lng": 121.512 },  
+	{ "name": "华丽家族", "code": 600503, "lat": 31.196, "lng": 121.382 },
+	{ "name": "上海能源", "code": 600508, "lat": 31.245, "lng": 121.515 },
+	{ "name": "置信电气", "code": 600517, "lat": 31.198, "lng": 121.384 },
+	{ "name": "交大昂立", "code": 600530, "lat": 31.181, "lng": 121.424 },
+	{ "name": "ST九龙", "code": 600555, "lat": 31.241, "lng": 121.517 },
+	{ "name": "光明乳业", "code": 600597, "lat": 31.190, "lng": 121.409 },
+	{ "name": "方正科技", "code": 600601, "lat": 31.188, "lng": 121.500 },
+	{ "name": "仪电电子", "code": 600602, "lat": 31.175, "lng": 121.415 },
+	{ "name": "市北高新", "code": 600604, "lat": 31.302, "lng": 121.443 },
+	{ "name": "汇通能源", "code": 600605, "lat": 31.230, "lng": 121.454 },  
+	{ "name": "金丰投资", "code": 600606, "lat": 31.199, "lng": 121.511 },
+	{ "name": "上海科技", "code": 600608, "lat": 31.304, "lng": 121.448 },
+	{ "name": "S中纺机", "code": 600610, "lat": 31.277, "lng": 121.541 },
+	{ "name": "大众交通", "code": 600611, "lat": 31.193, "lng": 121.429 },
+	{ "name": "老凤祥", "code": 600612, "lat": 31.175, "lng": 121.440 },
+	{ "name": "神奇制药", "code": 600613, "lat": 31.234, "lng": 121.474 },
+	{ "name": "鼎立股份", "code": 600614, "lat": 31.294, "lng": 121.525 },
+	{ "name": "丰华股份", "code": 600615, "lat": 31.213, "lng": 121.526 },
+	{ "name": "金枫酒业", "code": 600616, "lat": 31.237, "lng": 121.417 },
+	{ "name": "ST联华", "code": 600617, "lat": 31.810, "lng": 121.568 },  
+	{ "name": "氯碱化工", "code": 600618, "lat": 31.074, "lng": 121.666 },
+	{ "name": "海立股份", "code": 600619, "lat": 31.271, "lng": 121.617 },
+	{ "name": "天寰股份", "code": 600620, "lat": 31.210, "lng": 121.414 },
+	{ "name": "华鑫股份", "code": 600621, "lat": 31.238, "lng": 121.484 },
+	{ "name": "嘉宝集团", "code": 600622, "lat": 31.389, "lng": 121.254 },
+	{ "name": "双钱股份", "code": 600623, "lat": 31.255, "lng": 121.496 },
+	{ "name": "复旦复华", "code": 600624, "lat": 31.299, "lng": 121.510 },
+	{ "name": "申达股份", "code": 600626, "lat": 31.253, "lng": 121.447 },
+	{ "name": "新世界", "code": 600628, "lat": 31.240, "lng": 121.480 },
+	{ "name": "棱光实业", "code": 600629, "lat": 31.203, "lng": 121.401 },
+	{ "name": "龙头股份", "code": 600630, "lat": 31.209, "lng": 121.491 },
+	//{ "name": "百联股份", "code": 600631, "lat": 31.244, "lng": 121.481 },
+	{ "name": "中技控股", "code": 600634, "lat": 31.297, "lng": 121.472 },
+	{ "name": "大众公用", "code": 600635, "lat": 31.193, "lng": 121.429 },
+	{ "name": "三爱富", "code": 600636, "lat": 31.176, "lng": 121.440 },
+	{ "name": "百视通", "code": 600637, "lat": 31.179, "lng": 121.417 },
+	{ "name": "新黄浦", "code": 600638, "lat": 31.245, "lng": 121.484 },
+	{ "name": "浦东金桥", "code": 600639, "lat": 31.249, "lng": 121.599 },
+	{ "name": "号白控股", "code": 600640, "lat": 31.250, "lng": 121.449 },
+	{ "name": "万业企业", "code": 600641, "lat": 31.246, "lng": 121.531 },
+	{ "name": "申能股份", "code": 600642, "lat": 31.180, "lng": 121.377 },
+	{ "name": "爱建股份", "code": 600643, "lat": 31.194, "lng": 121.453 },
+	{ "name": "同达创业", "code": 600647, "lat": 31.236, "lng": 121.525 },
+	{ "name": "外高桥", "code": 600648, "lat": 31.323, "lng": 121.611 },
+	{ "name": "城投控股", "code": 600649, "lat": 31.252, "lng": 121.496 },
+	{ "name": "锦江投资", "code": 600650, "lat": 31.238, "lng": 121.496 },
+	{ "name": "飞乐音响", "code": 600651, "lat": 31.357, "lng": 121.288 },
+	{ "name": "爱使股份", "code": 600652, "lat": 31.205, "lng": 121.456 },
+	{ "name": "申华控股", "code": 600653, "lat": 31.245, "lng": 121.492 },
+	{ "name": "飞乐股份", "code": 600654, "lat": 31.294, "lng": 121.449 },
+	{ "name": "豫园商城", "code": 600655, "lat": 31.230, "lng": 121.498 },
+	{ "name": "新南洋", "code": 600661, "lat": 31.205, "lng": 121.435  },
+	{ "name": "强生控股", "code": 600662, "lat": 31.236, "lng": 121.466 },
+	{ "name": "陆家嘴", "code": 600663, "lat": 31.220, "lng": 121.538 },
+	{ "name": "中华企业", "code": 600675, "lat": 31.199, "lng": 121.511 },
+	{ "name": "交运股份", "code": 600676, "lat": 31.248, "lng": 121.462 },
+	{ "name": "金山开发", "code": 600679, "lat": 31.192, "lng": 121.419 },
+	{ "name": "上海普天", "code": 600680, "lat": 31.181, "lng": 121.424 },
+	{ "name": "上海石化", "code": 600688, "lat": 31.717, "lng": 121.338 },
+	{ "name": "ST三毛", "code": 600689, "lat": 31.208, "lng": 121.478 },
+	{ "name": "亚通股份", "code": 600692, "lat": 31.628, "lng": 121.411 },
+	{ "name": "大江股份", "code": 600695, "lat": 31.179, "lng": 121.413 },
+	{ "name": "多伦股份", "code": 600696, "lat": 31.240, "lng": 121.512 },
+	{ "name": "海博股份", "code": 600708, "lat": 31.177, "lng": 121.413 },
+	{ "name": "上海新梅", "code": 600732, "lat": 31.251, "lng": 121.470 },
+	{ "name": "华域汽车", "code": 600741, "lat": 31.232, "lng": 121.468 },
+	{ "name": "上实发展", "code": 600748, "lat": 31.231, "lng": 121.485 },
+	{ "name": "锦江股份", "code": 600754, "lat": 31.238, "lng": 121.496 },
+	];
+	
+		//构造地图实例
+		var map = new BMap.Map("l-map");
+		map.enableScrollWheelZoom();
+		//设定地图中心和缩放大小
+	    map.centerAndZoom(new BMap.Point(121.479, 31.223), 13);
+	
+	//构造实时股票JSON数据 {"code","startprice","nowprice"}
+	var stock_time = [];
+	
+	for(var i =0;i<stock.length;i++){
+		//分割来自新浪的单个股票数据
+		eval("var element"+stock[i].code+"= hq_str_sh"+stock[i].code+".split(',')");
+		//取股票开盘价和当下价格
+		eval("var ele1 = element"+stock[i].code+"[1];");
+		eval("var ele3 = element"+stock[i].code+"[3];");
+		//写入stock_time
+		stock_time[i] = {"code":stock[i].code,"startprice":ele1,"nowprice":ele3};
+	}
+	
+		//红圈
+	    	var red_circle = [];
+	    	//绿圈
+	    	var green_circle = [];
+	    	//半径
+	    	var r = 500;
+	    	
+	    	function setCircle(){
+	    		r = 50*map.getZoom();
+	    for (var i = 0; i < stock.length; i++) {
+	    	//涨跌数值
+	    	var difference = parseFloat(stock_time[i].nowprice)-parseFloat(stock_time[i].startprice);
+	    	//涨跌比率
+	    	var rate = Math.abs(difference/parseFloat(stock_time[i].nowprice));
+	    	
+	    	if (difference>0) {
+	    		//分配红圈位置
+	    		red_circle[red_circle.length] = new BMap.Circle(new BMap.Point(stock[i].lng, stock[i].lat),r,{strokeColor:"blue",fillColor:"red",strokeWeight:2, strokeStyle:"dashed",});
+	    	}
+	    	else{
+	    		//分配绿圈位置
+	    		green_circle[green_circle.length] = new BMap.Circle(new BMap.Point(stock[i].lng, stock[i].lat),r,{strokeColor:"blue",fillColor:"green",strokeWeight:2, strokeStyle:"dashed"});
+	    	}
+	   	}
+	    
+	    	
+	
+	    for (var i =0;i<green_circle.length;i++) {
+	        map.addOverlay(green_circle[i]);
+	    }
+	    
+	    for (var i =0;i<red_circle.length;i++) {
+	        map.addOverlay(red_circle[i]);
+	    }
+	    }
+	    
+	    setCircle();
+	    
+	    function resetCircle(){
+	    	map.clearOverlays();
+	    	setCircle();
+	    }
+	    
+	//  map.addEventListener("zoomend",resetCircle);
+</script>
